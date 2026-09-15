@@ -58,4 +58,30 @@ router.get('/:workType',async(req,res)=>{
     }
 })
 
+//Update person record
+router.put('/:id',async(req,res)=>{
+    try{
+        const personId=req.params.id;  //Extract id from url parameter
+        const updatedPersonData=req.body; //updated data for the person
+
+        const response=await person.findByIdAndUpdate(personId,updatedPersonData,{
+              returnDocument: 'after',  //Return the Updated document
+            runValidators:true, //Run Mongoose Validation
+        })
+
+        if(!response){
+            return res.status(404).json({Error:"Person Not Found"});
+        }
+
+         console.log(" DATA UPDATED");
+         res.status(200).json(response);
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json({Error:'Internal Server Error'});
+    }
+})
+
+
+
 module.exports=router;
