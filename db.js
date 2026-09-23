@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
+
 //Define the mongoDB Connection URl
-const mongoURL='mongodb://localhost:27017/hotels'  //replace 'hotels' with your database name
+const mongoURL=process.env.mongoDB_URL;
+//const mongoURL=process.env.mongoDB_URL_Local;
+const dns=require("dns");
+dns.setServers(["1.1.1.1","8.8.8.8"]);
+
 
 //set up MongoDB connection
 
