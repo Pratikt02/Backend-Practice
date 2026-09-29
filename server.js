@@ -9,21 +9,21 @@ const LocalStrategy=require('passport-local').Strategy;
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-const PORT=process.env.PORT||3000;
+const PORT=process.env.PORT||3000;    
 
 
 //Middleware Function
-const logRequest=(req,res,next)=>{
+const logRequest=(req,res,next)=>{     
     console.log(`[${new Date().toLocaleString()}] Request Made To:${req.originalUrl}`);
     next();  //Move on to the next Phase
 }
-app.use(logRequest);
+app.use(logRequest);     
 
 
 
 
-app.get('/', function (req, res) {
-    res.send('Welcome to our Hotel');
+app.get('/', function (req, res) {   
+    res.send('Welcome to our Hotel');    
 })
 
 
