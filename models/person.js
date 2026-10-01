@@ -38,12 +38,12 @@ const personSchema=new mongoose.Schema({
     },
     Password:{
         type:String,
-        required:true,
+        required:true,   
     }
 
 })
-
-//Create Person model
+     
+//Create Person model.
 
 const person=mongoose.model('person',personSchema);
-module.exports=person;       
+module.exports=person;             
