@@ -22,7 +22,7 @@ const localAuthMiddleware=passport.authenticate('local',{session:false})
 
 app.get('/', function (req, res) {   
     res.send('Welcome to our Hotel');    
-})
+})              
 
 
 //Import the Router file
@@ -36,4 +36,3 @@ app.use('/menuItem', menuItemRoutes);
 app.listen(PORT, () => {
     console.log('✅ Listening on port 3000');
 })
-
